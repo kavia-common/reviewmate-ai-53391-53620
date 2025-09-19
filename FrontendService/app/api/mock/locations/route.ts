@@ -1,0 +1,11 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  return NextResponse.json({
+    items: [
+      { id: "loc-1", name: "Downtown", city: "Austin", channels: ["google", "yelp"], reviews30d: 115 },
+      { id: "loc-2", name: "Airport", city: "Austin", channels: ["google"], reviews30d: 62 },
+      { id: "loc-3", name: "Uptown", city: "Dallas", channels: ["google", "facebook"], reviews30d: 88 }
+    ]
+  });
+}

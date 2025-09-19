@@ -1,0 +1,23 @@
+import { NextResponse } from "next/server";
+
+/**
+ * PUBLIC_INTERFACE
+ * Provides integration notes for API consumers and documents realtime strategies.
+ */
+export async function GET() {
+  return NextResponse.json({
+    name: "ReviewMate AI Frontend API Notes",
+    websocket: {
+      usage: "For realtime review aggregation, connect your backend to emit review events via WebSocket or SSE. Frontend can subscribe through a Next.js route or direct backend endpoint.",
+      docs: "/api/readme",
+    },
+    endpoints: {
+      reviews: "GET /api/mock/reviews?channel=&location=",
+      aiSuggest: "POST /api/mock/ai-suggest",
+      reply: "POST /api/mock/reply",
+      analytics: "GET /api/mock/analytics",
+      locations: "GET /api/mock/locations, GET /api/mock/location?id=",
+      team: "GET /api/mock/team"
+    }
+  });
+}
