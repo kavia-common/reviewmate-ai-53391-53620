@@ -1,4 +1,4 @@
 {
-    "command": "npm run dev -- -p <port> -H <host>",
+    "command": "PORT=<port> HOST=<host> BROWSER=none npm start",
     "working_directory": "/home/kavia/workspace/code-generation/reviewmate-ai-53391-53620/FrontendService"
 }
