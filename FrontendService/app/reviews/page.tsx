@@ -15,7 +15,7 @@ export default function ReviewsPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const locations = useAppStore(s => s.locations);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["reviews", { channel, location }],
     queryFn: () => fetchJSON(`/api/mock/reviews?channel=${channel}&location=${location}`),
   });
@@ -51,6 +51,8 @@ export default function ReviewsPage() {
         <div className="lg:col-span-2 card">
           {isLoading ? (
             <div>Loading reviews...</div>
+          ) : error ? (
+            <div className="text-red-300">Failed to load reviews. Please try again. {(error as Error)?.message}</div>
           ) : (
             <ul className="divide-y divide-slate-700">
               {data?.items?.map((r: any) => (

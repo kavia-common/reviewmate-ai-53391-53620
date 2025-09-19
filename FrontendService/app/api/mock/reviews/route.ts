@@ -32,7 +32,10 @@ export async function GET(req: Request) {
     }
   ];
 
-  const items = sample.filter(r => (channel === "all" || r.channel === channel) && (location === "all" || location));
+  // Correct filtering: when location === "all" include all; since sample lacks location attribute,
+  // we only apply channel filter and ignore location for demo stability.
+  const items = sample.filter((r) => channel === "all" || r.channel === channel);
+
   return NextResponse.json({ items });
 }
 
