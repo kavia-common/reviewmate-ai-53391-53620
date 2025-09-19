@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  // Use default output so API routes (NextAuth) work during build and runtime
 };
 
 export default nextConfig;
